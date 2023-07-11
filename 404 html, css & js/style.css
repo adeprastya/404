@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+} :root {
+    --color-black1: #121212;
+    --color1: #caf0f8;
+    --color2: #ade8f4;
+    --color3: #90e0ef;
+    --color4: #48cae4;
+    --color5: #00b4d8;
+    --color6: #0096c7;
+    --color7: #0077b6;
+    --color8: #023e8a;
+    --color9: #03045e;
+    --font-size1: calc(1.5vw + 1.5vh);
+    --font-size2: calc(1.3vw + 1.3vh);
+    --font-size3: calc(1vw + 1vh);
+    --font-fam1: 'Roboto Mono', monospace;
+    --font-fam2: 'Aboreto', cursive;
+} body {
+    overflow: hidden;
+}
+
+@keyframes text-reveal {
+    0% { opacity: 0; } 
+    100% { opacity: 1; } 
+} @keyframes error {
+    0% { background-color: transparent; }
+    5% { background-color: transparent; }
+    7% { background-color: rgba(255, 255, 255); }
+    10% { background-color: transparent; }
+    49% { background-color: transparent; }
+    50% { background-color: rgba(255, 255, 255); }
+    51% { background-color: transparent; }
+    95% { background-color: transparent; }
+    98% { background-color: rgba(255, 255, 255); }
+    100% { background-color: transparent; }
+}
+
+.cursor {
+    width: 10px;
+    height: 10px;
+    position: fixed;
+    z-index: 999;
+    pointer-events: none;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 10px 5px #ff0000, 0 0 1px 1px #ff0000 inset;
+    transition: background .2s, transform .2s, box-shadow .2s;
+} .cursor-effect {
+    cursor: pointer;
+}
+
+.section-1 {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: radial-gradient(circle at 50% 0, #343434, var(--color-black1) 40%);
+
+    display: flex;
+    flex-direction: column;
+} .section-1 .text-code {
+    margin: 5vh 0 0 5vw;
+    font-size: var(--font-size1);
+    font-family: var(--font-fam1);
+} .section-1 .text-code div:nth-child(1) {
+    animation: text-reveal 1s both;
+} .section-1 .text-code div:nth-child(2) {
+    margin: 0 0 0 5vw;
+    animation: text-reveal 1s 1s both;
+} .section-1 .text-code div:nth-child(3) {
+    animation: text-reveal 1s 2s both;
+} .section-1 .text-code {
+    color: var(--color6);
+} .section-1 .text-code .a {
+    color: var(--color7);
+} .section-1 .text-code .b {
+    color: var(--color5);
+} .section-1 .text-code .b .b-1 {
+    color: var(--color2);
+} .section-1 .text-code .b .b-2 {
+    color: var(--color3);
+} .section-1 .text-code .b .b-3 {
+    color: var(--color2);
+} .section-1 .text-code .c {
+    color: var(--color4);
+} .section-1 .text-code .d {
+    color: var(--color7);
+} .section-1 .text-code .e {
+    color: var(--color3);
+} .section-1 .text-code .e .e-1 {
+    color: #ff0000;
+    animation: error .3s 10;
+} .section-1 p {
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 20vh;
+    font-family: var(--font-fam2);
+    font-size: var(--font-size3);
+    color: var(--color1);
+    cursor: pointer;
+    animation: text-reveal 1s 4s both, error 1s alternate infinite;
+} .section-1 p:hover {
+    animation: text-reveal 1s both;
+    border-bottom: 1px solid var(--color1);
+}
+ 
+.console-log {
+    width: 100vw;
+    height: 70vh;
+    position: absolute;
+    top: 100vh;
+    border-top: 1vh solid var(--color2);
+    box-shadow: 0 0 5px var(--color4);
+    font-size: var(--font-size2);
+    font-family: var(--font-fam2);
+    line-height: var(--font-size2);
+    color: var(--color3);
+    text-align: center;
+    text-shadow: 0 0 3px var(--color2);
+    backdrop-filter: brightness(.7) blur(30px);
+    transition: 3s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} .console-log .static-text {
+    margin: 10vh 0 5vh 0;
+} .console-log .dynamic-text {
+    height: calc(1.3vw + 1.3vh + .25vw + .25vh);
+    margin: 0 0 5vh 0;
+    position: relative;
+    list-style: none;
+} .console-log .href-text {
+    display: flex;
+    width: calc(5vw + 7vh);
+    height: calc(5vw + 7vh);
+    margin: 20vh 0 0 0;
+    box-shadow: 0 0 2px var(--color4);
+    border-radius: 50%;
+    transition: background 1s, opacity 1s;
+} .console-log .href-text:hover {
+    background: var(--color4);
+    opacity: .8;
+    > a {
+    color: var(--color-black1);
+    text-shadow: 0 0 3px var(--color7);
+    }
+} .console-log .href-text a {
+    margin: auto;
+    font-size: var(--font-size3);
+    font-family: var(--font-fam2);
+    color: var(--color2);
+    text-decoration: none;
+}
