@@ -16,23 +16,21 @@ window.addEventListener('load', () => { window.scrollTo(0, 0) });
 
 
 // follow cursor
-function followCursor(e, element, size, delay) {
-    let mouseX = e.clientX;
-    let mouseY = e.clientY;
-    setTimeout(() => {
-        element.style.left = `${mouseX-size/2}px`,
-        element.style.top = `${mouseY-size/2}px`;
-    }, delay);
+function followCursor(e, element, size, duration, timingFunctions) {
+    const mouseX = e.clientX - size / 2;
+    const mouseY = e.clientY - size / 2;
+    element.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    element.style.transition = `transform ${duration}ms ${timingFunctions}`;
 }
     // cursor pointing
 for(let i = 0; i < cursorEffect.length; i++) {
     cursorEffect[i].addEventListener('mouseenter', () => {
-        cursor.style.transform = `scale(10)`,
+        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(10)!important`;
         cursor.style.background = `transparent`,
         cursor.style.boxShadow = `0 0 1px #ff0000`;
     });
     cursorEffect[i].addEventListener('mouseleave', () => {
-        cursor.style.transform = `scale(1)`,
+        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)!important`;
         cursor.style.background = `#fff`,
         cursor.style.boxShadow = `0 0 10px 5px #ff0000, 0 0 1px 1px #ff0000 inset`;
     });
@@ -73,7 +71,7 @@ function backgroundGradientFollow(e, element, delay) {
 
 
 window.addEventListener('mousemove', function(e) {
-    followCursor(e, cursor, 10, 100);
+    followCursor(e, cursor, 10, 100, "cubic-bezier(.67,.41,.89,1.64)");
     mouseParallaxTranslate(e, hrefText, 3);
     mouseParallaxTranslate(e, href, 1);
     backgroundGradientFollow(e, section1, 0);
