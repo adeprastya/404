@@ -23,18 +23,10 @@ function followCursor(e, element, size, duration, timingFunctions) {
     element.style.transition = `transform ${duration}ms ${timingFunctions}`;
 }
     // cursor pointing
-for(let i = 0; i < cursorEffect.length; i++) {
-    cursorEffect[i].addEventListener('mouseenter', () => {
-        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(10)!important`;
-        cursor.style.background = `transparent`,
-        cursor.style.boxShadow = `0 0 1px #ff0000`;
-    });
-    cursorEffect[i].addEventListener('mouseleave', () => {
-        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)!important`;
-        cursor.style.background = `#fff`,
-        cursor.style.boxShadow = `0 0 10px 5px #ff0000, 0 0 1px 1px #ff0000 inset`;
-    });
-}
+cursorEffect.forEach(e => { 
+    e.addEventListener('mouseenter', () => cursor.style.animation = `blink .3s both` );
+    e.addEventListener('mouseleave', () => cursor.style.animation = `blink-reverse .3s both` );
+});
 // typing effect
 function typingEffect(element, speed, delay) {
     setTimeout(() => {

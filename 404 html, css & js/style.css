@@ -24,6 +24,32 @@
 @keyframes text-reveal {
     0% { opacity: 0; } 
     100% { opacity: 1; } 
+} @keyframes blink {
+    0% { opacity: 1; }
+    5% { opacity: 0; }
+    10% { opacity: 1; }
+    20% { opacity: 0; }
+    30% { opacity: 1; }
+    40% { opacity: 0; }
+    60% { opacity: 1; }
+    70% { opacity: 0; }
+    80% { opacity: 1; }
+    90% { opacity: 0; }
+    95% { opacity: 1; }
+    100% { opacity: 0; }
+} @keyframes blink-reverse {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    10% { opacity: 0; }
+    20% { opacity: 1; }
+    30% { opacity: 0; }
+    40% { opacity: 1; }
+    60% { opacity: 0; }
+    70% { opacity: 1; }
+    80% { opacity: 0; }
+    90% { opacity: 1; }
+    95% { opacity: 0; }
+    100% { opacity: 1; }
 } @keyframes error {
     0% { background-color: transparent; }
     5% { background-color: transparent; }
@@ -46,8 +72,7 @@
     border-radius: 50%;
     background: #fff;
     box-shadow: 0 0 10px 5px #ff0000, 0 0 1px 1px #ff0000 inset;
-    transition: background .2s, box-shadow .2s;
-} .cursor-effect {
+} .cursor-effect:hover {
     cursor: pointer;
 }
 
