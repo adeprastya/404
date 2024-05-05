@@ -1,3 +1,3 @@
 # 404
 
-404 is a code for an error lika a broken link
+404 is a code for an error like a broken link
